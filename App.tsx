@@ -1,8 +1,8 @@
 import React from 'react';
-import Home from './src/screens/Home';
+import RandomActivity from './src/screens/RandomActivity';
 
 function App(): JSX.Element {
-  return <Home />;
+  return <RandomActivity />;
 }
 
 export default App;
