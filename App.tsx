@@ -1,8 +1,9 @@
 import React from 'react';
-import RandomActivity from './src/screens/RandomActivity';
+// import ListPage from './src/screens/ListPage';
+import Form from './src/screens/Form';
 
 function App(): JSX.Element {
-  return <RandomActivity />;
+  return <Form />;
 }
 
 export default App;
