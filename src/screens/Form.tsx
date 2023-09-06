@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TextInput, SafeAreaView, StyleSheet, Text} from 'react-native';
+import {TextInput, SafeAreaView, StyleSheet, Text, Button} from 'react-native';
 
 const styles = StyleSheet.create({
   input: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Form = () => {
+const Form = ({navigation}: any) => {
   const [text, setText] = useState<string>();
   const [hasError, setHasError] = useState(false);
 
@@ -32,6 +32,13 @@ const Form = () => {
         onChangeText={onChangeInput}
       />
       {hasError ? <Text>Digite pelo menos 6 caracteres</Text> : null}
+
+      <Button
+        onPress={() => {
+          navigation.navigate('Home', {id: 1});
+        }}
+        title="Navegar para a tela Home"
+      />
     </SafeAreaView>
   );
 };

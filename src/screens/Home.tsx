@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
+import {SafeAreaView, ScrollView, StatusBar, Text} from 'react-native';
 import Header from '../components/Header';
 import PokemonList from '../components/PokemonList';
 
@@ -18,13 +18,15 @@ const pokemons = [
   },
 ];
 
-const Home = () => {
+const Home = ({route}: any) => {
+  const {params} = route;
   return (
     <SafeAreaView>
       <ScrollView>
         <StatusBar />
         <Header title="Home Page" />
         <PokemonList pokemons={pokemons} />
+        <Text style={{fontSize: 32}}>ID: {params.id}</Text>
       </ScrollView>
     </SafeAreaView>
   );
