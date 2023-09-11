@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {TextInput, SafeAreaView, StyleSheet, Text, Button} from 'react-native';
+import React, { useState } from 'react';
+import { TextInput, SafeAreaView, StyleSheet, Text, Button } from 'react-native';
 
 const styles = StyleSheet.create({
   input: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Form = ({navigation}: any) => {
+const Login = ({ navigation }: any) => {
   const [text, setText] = useState<string>();
   const [hasError, setHasError] = useState(false);
 
@@ -26,21 +26,25 @@ const Form = ({navigation}: any) => {
 
   return (
     <SafeAreaView>
+      <Text>Login</Text>
+      <TextInput
+        style={styles.input}
+      />
+
+      <Text>Senha</Text>
       <TextInput
         style={styles.input}
         value={text}
         onChangeText={onChangeInput}
       />
-      {hasError ? <Text>Digite pelo menos 6 caracteres</Text> : null}
-
       <Button
         onPress={() => {
-          navigation.navigate('Home', {id: 1});
+          navigation.navigate('Home');
         }}
-        title="Navegar para a tela Home"
+        title="Login"
       />
     </SafeAreaView>
   );
 };
 
-export default Form;
+export default Login;
