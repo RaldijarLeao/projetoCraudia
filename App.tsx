@@ -1,6 +1,6 @@
 import React from 'react';
 import Login from './src/screens/Login';
-import CadastroUsuario from './src/screens/CadastroUsuario';
+import CadastroUsuario from './src/screens/CadastrarUsuario';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -9,8 +9,8 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='Login' component={Login} />
-        <Stack.Screen name='CadastroUsuario' component={CadastroUsuario} />
+        <Stack.Screen name='Tamagochi' component={Login} />
+        <Stack.Screen name='Cadastrar Novo Usuário' component={CadastroUsuario} />
       </Stack.Navigator>
     </NavigationContainer>
   );
