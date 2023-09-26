@@ -13,6 +13,7 @@ import axios from 'axios';
 const CadastroUsuario = ({navigation}: any) => {
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [password2, setPassword2] = useState<string>('');
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -83,8 +84,16 @@ const CadastroUsuario = ({navigation}: any) => {
             placeholderTextColor="#fff" 
             onChangeText={setPassword}
           />
+          <TextInput
+            value={password2}
+            style={styles.input}
+            placeholder="Confirme a senha"
+            placeholderTextColor="#fff" 
+            onChangeText={setPassword2}
+          />
           <NewButton
             title="Cadastrar"
+            disable={password == password2 ? false : true}
             onPressButton={register}
             Style={styleButton}
           />

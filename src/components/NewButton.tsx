@@ -4,6 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 type Props ={
   title : string
+  disable : boolean
   onPressButton: ()=>void
   Style:{
     width: number;
@@ -15,7 +16,7 @@ type Props ={
 
 }
 
-const NewButton = ({title,onPressButton, Style}:Props) => {
+const NewButton = ({title,disable,onPressButton, Style}:Props) => {
 
   const styles = StyleSheet.create({
     buttonContainer: {
@@ -32,9 +33,9 @@ const NewButton = ({title,onPressButton, Style}:Props) => {
 
 
     return (
-      <TouchableOpacity onPress={onPressButton}>
+      <TouchableOpacity onPress={onPressButton} disabled={disable} >
       <View style={{...styles.buttonContainer, width:Style.width,
-         height:Style.height, backgroundColor:Style.backgroundColor, borderRadius:Style.borderRadius, margin:Style.margin}}>
+         height:Style.height, backgroundColor: disable ? 'red' : Style.backgroundColor, borderRadius:Style.borderRadius, margin:Style.margin}}>
         <Text style={styles.title}>{title}</Text>
       </View>
     </TouchableOpacity>
