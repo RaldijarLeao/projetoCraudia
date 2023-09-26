@@ -56,10 +56,10 @@ const CadastroUsuario = ({navigation}: any) => {
       }
     )
     .then(res => {
-      Alert.alert('sucess', 'Usuário incorreto!')
-      // navigation.navigate('Tamagochi');
+      Alert.alert('Sucesso!', 'Usuário registrado!')
+      navigation.navigate('Tamagochi');
     })
-    .catch(error => Alert.alert('Erro', 'Usuário incorreto!'))
+    .catch(error => Alert.alert('Erro!', 'Usuário incorreto!'))
 
   };
 
