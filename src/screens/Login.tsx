@@ -83,6 +83,7 @@ const Login = ({navigation}: any) => {
           />
           <MyButton
             title="Entrar"
+            disable={false}
             onPressButton={loginSys}
             Style={styleButton}
           />
