@@ -30,30 +30,21 @@ const ButtonContainer = styled.View`
 
 const Acoes = ({ route }: any) => {
   const [pet, setPet] = useState<any | null>(null)
-  const { onGoBack, id } = route.params;
+  const {  id } = route.params;
 
-  const carregarTela = async () => {
-    if(id) {
-        const response = await axios.get(`https://tamagochiapi-clpsampedro.b4a.run/pet/${id}`);
-        setPet(response.data);
-    }
-  }
 
-  useEffect(() => {
-    carregarTela();
-  }, [])
 
-  const handlePlay = async () => {
+  const brincar = async () => {
     const response = await axios.post(`https://tamagochiapi-clpsampedro.b4a.run/pet/${id}/play`);
     setPet(response.data);
   };
 
-  const handleFeed = async () => {
+  const comer = async () => {
     const response = await axios.post(`https://tamagochiapi-clpsampedro.b4a.run/pet/${id}/food`);
     setPet(response.data);
   };
 
-  const handleRest = async () => {
+  const dormir = async () => {
     const response = await axios.post(`https://tamagochiapi-clpsampedro.b4a.run/pet/${id}/rest`);
     setPet(response.data);
   };
@@ -61,16 +52,10 @@ const Acoes = ({ route }: any) => {
   return (
     <Container>
       <Heading>Tamagotchi</Heading>
-      <Stats>
-        {pet && <StatText>Hunger: {pet.foodLevel}%</StatText>}
-        {pet && <StatText>Happiness: {pet.funLevel}%</StatText>}
-        {pet && <StatText>Energy: {pet.restLevel}%</StatText>}
-
-      </Stats>
       <ButtonContainer>
-        <Button title="Brincar" onPress={handlePlay} />
-        <Button title="Alimentar" onPress={handleFeed} />
-        <Button title="Descansar" onPress={handleRest} />
+        <Button title="Brincar" onPress={brincar} />
+        <Button title="Alimentar" onPress={comer} />
+        <Button title="Dormir" onPress={dormir} />
       </ButtonContainer>
     </Container>
   );

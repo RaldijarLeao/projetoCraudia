@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
-import { Input } from 'react-native-elements';
+import { Image, Input } from 'react-native-elements';
 import NewButton from '../components/NewButton';
 
 const ParImpar = (navigation:any) => {
@@ -36,14 +36,10 @@ const ParImpar = (navigation:any) => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <NewButton
-            title="Sair"
-            disable={false}
-            onPressButton={() => {
-              navigation.navigate('Listar Tamagochi');
-            }}
-            Style={styleButton}
-          />
+        <Image
+                source={require('../images/Screenshot_3.png')}
+                style={{width: 130, height: 190}}
+              />
       <Text>Escolha um número:</Text>
       <Input
         placeholder="Digite um número"

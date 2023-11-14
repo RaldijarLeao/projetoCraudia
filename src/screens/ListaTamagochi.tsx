@@ -33,7 +33,7 @@ const styleButton = {
 const styles = StyleSheet.create({
   cadastro: {
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#83ECFF',
   },
   input: {
     height: 50,
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     margin: 4,
+    backgroundColor:"#C3F6FF"
   },
   cardContent: {
     flexDirection: 'row',
@@ -100,6 +101,16 @@ const ListaTamagochi = ({navigation}: any) => {
     }
   };
 
+  const randomIndex = Math.floor(Math.random() * 2);
+
+  const imageSources = [
+    require('../images/Screenshot_3.png'),
+    require('../images/Screenshot_4.png')
+  ];
+
+  const selectedImage = imageSources[randomIndex];
+
+
   const ListItem = ({tamagotchi}: item) => {
     return (
       <SafeAreaView>
@@ -107,7 +118,7 @@ const ListaTamagochi = ({navigation}: any) => {
           <Card.Content style={styles.cardContent}>
             <View style={styles.textContainer}>
             <Image
-                source={require('../images/Screenshot_3.png')}
+                source={selectedImage}
                 style={{width: 100, height: 100}}
               />
               <Text style={styles.text}>Nome: {tamagotchi.name}</Text>
