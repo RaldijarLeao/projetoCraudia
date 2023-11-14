@@ -92,7 +92,7 @@ const CadastroUsuario = ({navigation}: any) => {
             onChangeText={setPassword2}
           />
           <NewButton
-            title="Cadastrar"
+            title="Confirmar"
             disable={password == password2 ? false : true}
             onPressButton={register}
             Style={styleButton}

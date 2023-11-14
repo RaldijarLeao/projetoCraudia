@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import MyButton from '../components/NewButton';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({navigation}: any) => {
   const [login, setLogin] = useState<string>('');
@@ -25,18 +26,25 @@ const Login = ({navigation}: any) => {
 
 
   const loginSys = async () => {
-    axios
+    try{
+      const {data} = await axios
       .post('https://tamagochiapi-clpsampedro.b4a.run/login', {
         email: login,
         password: password,
-      })
-      .then(res => {
-        navigation.navigate('Cadastrar Novo Usuário');
-      })
-      .catch(error => {
-        Alert.alert('Erro', 'Usuário incorreto!');
       });
-  };
+      try {
+        await AsyncStorage.setItem('token', data.token);
+        navigation.navigate('Listar Tamagochi')
+
+      } catch  (error) {
+        Alert.alert('Error', 'Erro na aplicação, tente novamente!')
+      }
+      
+    } catch (error) {
+      Alert.alert('Error', 'Usuário não encontrado!')
+    }
+  } 
+  ;
 
   const styles = StyleSheet.create({
     container: {
@@ -85,6 +93,13 @@ const Login = ({navigation}: any) => {
             title="Entrar"
             disable={false}
             onPressButton={loginSys}
+            Style={styleButton}
+          />
+          <MyButton
+            title="Cadastrar"
+            disable={false}
+            onPressButton={() =>
+              navigation.navigate('Cadastrar Novo Usuário')}
             Style={styleButton}
           />
         </View>
